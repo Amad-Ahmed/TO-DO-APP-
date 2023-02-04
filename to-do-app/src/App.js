@@ -1,40 +1,39 @@
-import logo from "./logo.svg";
 import "./App.css";
+import BottomBar from "./Components/BottomBar";
+import NavBar from "./Components/NavBar";
+import React, { useState } from "react";
 
-function App() {
+function App(props) {
+  const [task, setTask] = useState(0);
   return (
     <>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            Navbar
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <form class="d-flex" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              ></input>
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
-          </div>
+      <NavBar />
+      <div className="card">
+        <h1 className="heading">THINGS TO DO</h1>
+        <div className="task">
+          <input
+            type="search"
+            id="form1"
+            className="task-input"
+            placeholder="Task To Do"
+            aria-label="Search"
+          />
         </div>
-      </nav>
+        <div>
+          <form>
+            <input type="checkbox"></input>
+            <label>Learn Javascript</label>
+            <hr />
+            <input type="checkbox"></input>
+            <label>Learn React</label>
+            <hr />
+            <input type="checkbox"></input>
+            <label>Learn Javascript</label>
+            <hr />
+          </form>
+        </div>
+        <BottomBar />
+      </div>
     </>
   );
 }
